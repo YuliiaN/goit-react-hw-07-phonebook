@@ -8,11 +8,12 @@ import { selectFilter } from 'redux/filter/selectors';
 
 export const App = () => {
   const contacts = useSelector(selectContacts);
-  const filter = useSelector(selectFilter);
+  console.log(contacts);
+  // const filter = useSelector(selectFilter);
 
-  const selectedContacts = contacts.filter(contact =>
-    contact.name.toLowerCase().includes(filter.toLowerCase())
-  );
+  // const selectedContacts = contacts.filter(contact =>
+  //   contact.name.toLowerCase().includes(filter.toLowerCase())
+  // );
 
   return (
     <>
@@ -20,10 +21,10 @@ export const App = () => {
         <Form></Form>
       </Section>
       <Section title="Contacts">
-        {contacts.length ? (
+        {contacts ? (
           <>
             <Filter title="Find contacts by name" />
-            <ContactsList currentContacts={selectedContacts} />
+            <ContactsList currentContacts={contacts} />
           </>
         ) : (
           <p>Your phonebook is empty</p>
